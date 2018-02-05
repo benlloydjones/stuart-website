@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import '../node_modules/bulma/bulma.sass';
+
 class App extends React.Component {
 
   render() {
