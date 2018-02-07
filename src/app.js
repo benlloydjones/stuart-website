@@ -15,7 +15,7 @@ class App extends React.Component {
       .get('/api/youTube/search')
       .then(res => {
         this.setState({ videos: res.data });
-        console.log(res.data);
+        console.log('this is state', this.state);
       })
       .catch(err => console.log(err));
   }
@@ -24,14 +24,26 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1 className="title is-1">Hello, world!</h1>
-        <ul>
+        <div className="columns is-multiline">
           {this.state.videos && this.state.videos.items.map(video => {
-            return (<li key={video.id.videoId}>
-              <p>{video.id.videoId}</p>
-            </li>);
+            return (<div key={video.id.videoId} className="column is-3">
+              <div className="card">
+                <div className="card-image">
+                  <figure className="image is-4by3">
+                    <img src={video.snippet.thumbnails.high.url} />
+                  </figure>
+                </div>
+                <div className="card-content">
+                  <div className="content">
+                    <p>{video.snippet.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>);
           })}
-        </ul>
+        </div>
       </div>
+
 
     );
   }
