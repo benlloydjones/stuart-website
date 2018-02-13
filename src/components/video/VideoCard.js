@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const VideoCard = ({ snippet, onClick, link }) => {
+const VideoCard = ({ snippet, onClick , id}) => {
   return (
     <div className="column is-3">
-      <Link to={link}>
+      <Link to={`/videos/${id.videoId}`}>
         <div className="card" onClick={onClick}>
           <div className="card-image">
             <figure className="image is-4by3">

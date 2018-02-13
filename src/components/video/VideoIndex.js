@@ -23,10 +23,6 @@ class VideoIndex extends React.Component {
       .catch(err => console.log(err));
   }
 
-  goToVideo = (id) => {
-    this.props.history.push(`/videos/${id}`);
-  }
-
   render() {
     return (
       <div className="container">
@@ -35,8 +31,6 @@ class VideoIndex extends React.Component {
             <VideoCard
               key={video.id.videoId}
               {...video}
-              link={`/videos/${video.id.videoId}`}
-              onClick={() => this.goToVideo(video.id.videoId)}
             />)}
         </div>
       </div>

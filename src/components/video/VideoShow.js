@@ -15,14 +15,6 @@ class VideoShow extends React.Component {
   render() {
     return (
       <div>
-        <iframe
-          id='ytplayer'
-          type='text/html'
-          width='640'
-          height='360'
-          src={`https://www.youtube.com/embed/${this.state.videoId}`}
-          frameBorder='0'>
-        </iframe>
         <VideoPlayer videoId={this.state.videoId} />
       </div>
     );
