@@ -6,7 +6,7 @@ import Home from './components/Home';
 import VideoIndex from './components/video/VideoIndex';
 import VideoShow from './components/video/VideoShow';
 
-import '../node_modules/bulma/bulma.sass';
+import 'bulma';
 
 class App extends React.Component {
 

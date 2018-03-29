@@ -14,8 +14,10 @@ class VideoShow extends React.Component {
 
   render() {
     return (
-      <div>
-        <VideoPlayer videoId={this.state.videoId} />
+      <div className="section">
+        <div className="container">
+          <VideoPlayer videoId={this.state.videoId} />
+        </div>
       </div>
     );
   }
