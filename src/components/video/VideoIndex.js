@@ -1,26 +1,38 @@
 import React from 'react';
-import youTubeSearch from 'util/youTube';
+import Axios from 'axios';
 
 import VideoCard from './VideoCard.js';
 
 class VideoIndex extends React.Component {
-
   state = {
     videos: [],
     nextPage: null,
     totalResults: null
-  }
+  };
 
   componentDidMount() {
-    youTubeSearch();
+    this.youTubeSearch();
   }
-
-
-
 
   loadMore = () => {
-    youTubeSearch(this.state.nextPage);
+    this.youTubeSearch(this.state.nextPage);
   }
+
+
+  youTubeSearch = (nextPageToken=null) => {
+    Axios
+      .get(`/api/youTube/search/${nextPageToken}`)
+      .then(res => {
+        const data = res.data;
+        const videos = this.state.videos.concat(data.items);
+        this.setState({
+          videos,
+          nextPage: data.nextPageToken,
+          totalResults: data.pageInfo.totalResults
+        });
+      })
+      .catch(err => err);
+  };
 
   render() {
     return (
